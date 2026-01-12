@@ -38,5 +38,3 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("")
 
-post = Post.objects.all()
-p_post = Post.published.all()
