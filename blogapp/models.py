@@ -40,8 +40,8 @@ class Post(models.Model):
                                                  self.slug])
 
 
-posts = Post.objects.filter(status='published')
-p_posts = Post.published.all()
+# posts = Post.objects.filter(status='published')
+# p_posts = Post.published.all()
 
 
 
