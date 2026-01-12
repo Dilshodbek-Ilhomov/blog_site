@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
-        return super(PublishedManager, self).get_queryset().filter(status='published')
+        return super(PublishedManager, self).get_queryset().filter(status='publish')
 
 
 class Post(models.Model):
@@ -34,7 +34,10 @@ class Post(models.Model):
     objects = models.Manager()
     published = PublishedManager()
 
-
     def get_absolute_url(self):
-        return reverse("")
+        return reverse('blogapp:post_detail',
+                       args=[self.publish.year,
+                             self.publish.month,
+                             self.publish.day,
+                             self.slug])
 
